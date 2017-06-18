@@ -25,15 +25,15 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jdbc')
 	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
-	compile('org.apache.poi', name: 'poi', version: '3.9')
-	compile('compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16')
+	compile group: 'org.apache.poi', name: 'poi', version: '3.16'
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.16'
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 jar {
 	manifest {
-		attributes 'Title': 'My Application', 'Version': version, 'Main-Class': 'parsing.TestApplication'
+		attributes 'Title': 'My Application', 'Version': version, 'Main-Class': 'parsing.ParsingApplication'
 	}
 	archiveName 'MyApp.jar'
 	dependsOn configurations.runtime

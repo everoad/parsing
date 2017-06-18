@@ -31,7 +31,7 @@ public class ParsingApplication {
 
 		MainView view = ctx.getBean(MainView.class);
 		view.setVisible(true);
-
+		
 	}
 
 	@Bean
