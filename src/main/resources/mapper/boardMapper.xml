@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="parsing.mapper.ParsingMapper">
+
+	
+	
+	<select id="getMainList" resultType="BoardVO">
+		SELECT board_seq, title, content, date_format(reg_date, '%y-%m-%d') AS reg_date, hit_count, reply_count, front_img, user_nick, board.menu_fir_seq, board.menu_sec_seq, menu_sec_name 
+		FROM board
+		JOIN user
+		ON user.user_email = board.user_email
+		JOIN menu_sec
+		ON board.menu_sec_seq = menu_sec.menu_sec_seq
+		ORDER BY board_seq DESC
+		LIMIT 0, 5
+	</select>
+	
+
+</mapper>
